@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "@angular/cli": "^20.0.3"
+    "@angular/cli": "^20.0.3",
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.2",
+	"pg": "^8.16.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.4",
+    "@types/pg": "^8.15.4"
   }
 }
