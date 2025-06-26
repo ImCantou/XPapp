@@ -8,12 +8,22 @@ const pool = new Pool({
   database: 'xpdb',
 });
 
-async function createUser() {
-  const username = 'quentin.cherel18@gmail.com';
-  const password = 'password';
-  const hash = await bcrypt.hash(password, 10);
+async function createUser(username: string, password: string) {
+  const client = await pool.connect();
+  try {
+    const existing = await client.query('SELECT 1 FROM users WHERE username = $1', [username]);
 
-  await pool.query('INSERT INTO users (username, password) VALUES ($1, $2) ON CONFLICT DO NOTHING', [username, hash]);
+    if (existing.rowCount)
+      return;
+
+    const hash = await bcrypt.hash(password, 10);
+    await client.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, hash]);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    client.release();
+    await pool.end();
+  }
 }
 
-createUser().then(() => process.exit());
+createUser('quentin.cherel18@gmail.com', 'password');

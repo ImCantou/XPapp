@@ -9,4 +9,4 @@ COPY . .
 
 RUN npm run build
 
-CMD npx ts-node src/createUser.ts && npx ts-node src/index.ts
+CMD npx ts-node src/createUser.ts && npx ts-node src/generateMeasures.ts && npx ts-node src/index.ts

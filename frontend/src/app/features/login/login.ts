@@ -22,7 +22,6 @@ import { AuthService } from '../auth/auth.service';
       <br />
       <button type="submit" [disabled]="!loginForm.form.valid">Send</button>
     </form>
-    <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
   `
 })
 export class Login {
