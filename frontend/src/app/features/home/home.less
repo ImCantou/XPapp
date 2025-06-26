@@ -1,0 +1,49 @@
+@label-color: #333;
+@border-color: #ccc;
+@highlight-bg: #f0f8ff;
+@plot-bg: #ffffff;
+
+div {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+  color: @label-color;
+  margin-right: 0.5rem;
+}
+
+select {
+  padding: 0.4rem;
+  border: 1px solid @border-color;
+  border-radius: 4px;
+  min-width: 150px;
+
+  &:focus {
+    outline: none;
+    border-color: darken(@border-color, 10%);
+  }
+}
+
+.analysis-info {
+  padding: 1rem;
+  background-color: @highlight-bg;
+  border: 1px solid lighten(@border-color, 20%);
+  border-radius: 6px;
+  color: @label-color;
+  line-height: 1.5;
+
+  strong {
+    display: inline-block;
+    width: 160px;
+  }
+}
+
+plotly-plot {
+  display: block;
+  margin-top: 1rem;
+  background-color: @plot-bg;
+  border: 1px solid @border-color;
+  border-radius: 8px;
+  padding: 0.5rem;
+}

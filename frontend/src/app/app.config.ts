@@ -7,15 +7,15 @@ import { PlotlyModule } from 'angular-plotly.js';
 import * as PlotlyJS from 'plotly.js-dist-min';
 
 function providePlotly() {
-  return importProvidersFrom(PlotlyModule.forRoot(PlotlyJS));
+	return importProvidersFrom(PlotlyModule.forRoot(PlotlyJS));
 }
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-	provideHttpClient(),
-	providePlotly()
-  ]
+	providers: [
+		provideBrowserGlobalErrorListeners(),
+		provideZoneChangeDetection({ eventCoalescing: true }),
+		provideRouter(routes),
+		provideHttpClient(),
+		providePlotly()
+	]
 };

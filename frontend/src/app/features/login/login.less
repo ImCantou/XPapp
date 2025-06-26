@@ -1,0 +1,50 @@
+
+@primary-color: #3498db;
+@text-color: #333;
+@input-border: #ccc;
+@input-border-focus: @primary-color;
+@button-bg: @primary-color;
+@button-text: #fff;
+
+form {
+  max-width: 300px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid lighten(@primary-color, 30%);
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  label {
+    display: block;
+    margin-bottom: 1rem;
+    color: @text-color;
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid @input-border;
+      border-radius: 4px;
+      box-sizing: border-box;
+
+      &:focus {
+        border-color: @input-border-focus;
+        outline: none;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: @button-bg;
+    color: @button-text;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: lighten(@button-bg, 20%);
+      cursor: not-allowed;
+    }
+  }
+}
